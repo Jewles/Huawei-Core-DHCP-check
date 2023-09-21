@@ -74,7 +74,7 @@ class DHCPMonitor:
 
             print(f"VLAN {vlan_id} 已使用地址数量: {used_value}")
 
-            if used_value > 500:
+            if used_value > 200:     #此处需要修改成你需要检测的范围
                 self.dingtalk_alert(vlan_id, used_value)
                 release_command = "reset ip pool name vlan{} all\n".format(vlan_id)
                 ssh_shell.send(release_command)
